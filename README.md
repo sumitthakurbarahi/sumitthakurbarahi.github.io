@@ -1,4 +1,4 @@
-﻿# Eigen haris's Portfolio
+# Someet's Portfolio
 
 Welcome to my personal portfolio repository! This site showcases my skills, projects, and experiences . It's built to highlight my journey, accomplishments, and the work I'm passionate about.
 
@@ -14,9 +14,9 @@ Welcome to my personal portfolio repository! This site showcases my skills, proj
 ## About Me
 
 <<<<<<< HEAD
-Hello! I'm Hari prasad Gajurel, an undergrade mechanical engineering student with a passion for implementing the mathematical problem to solve the social problem. 
+Hello! I'm Sumit Thakur Barahi, an undergrade mechanical engineering student with a passion for implementing the mathematical problem to solve the social problem. 
 =======
-Hello! I'm Hari prasad Gajurel, I am an undergraduate mechanical engineeringstudent withastrong interest in both theoretical and applied
+Hello! I'm Sumit Thakur Barahi, I am an undergraduate mechanical engineeringstudent withastrong interest in both theoretical and applied
  problems in control theory and AI/ML. I enjoy the software implementation of mathematical ideas and have a passion for 3D CAD design and embedded systems.
 ## Projects
 
