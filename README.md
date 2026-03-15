@@ -1,46 +1,74 @@
 # Someet's Portfolio
 
-Welcome to my personal portfolio repository! This site showcases my skills, projects, and experiences . It's built to highlight my journey, accomplishments, and the work I'm passionate about.
+Welcome to my personal portfolio repository! This site showcases my skills, projects, and experiences. It highlights my journey, accomplishments, and the work I am passionate about in mechanical engineering, robotics, and computational design.
 
 ## Table of Contents
 
 - [About Me](#about-me)
-- [Projects](#project)
+- [Projects](#projects)
 - [Skills](#skills)
 - [Experience](#experience)
 - [Education](#education)
 - [Contact](#contact)
 
+---
+
 ## About Me
 
-<<<<<<< HEAD
-Hello! I'm Sumit Thakur Barahi, an undergrade mechanical engineering student with a passion for implementing the mathematical problem to solve the social problem. 
-=======
-Hello! I'm Sumit Thakur Barahi, I am an undergraduate mechanical engineeringstudent withastrong interest in both theoretical and applied
- problems in control theory and AI/ML. I enjoy the software implementation of mathematical ideas and have a passion for 3D CAD design and embedded systems.
+Hello! I'm **Sumit Thakur Barahi**, an undergraduate Mechanical Engineering student at Pulchowk Campus, Institute of Engineering, Nepal. I have a strong interest in robotics, control systems, AI/ML, and product design.  
+
+I enjoy translating mathematical and theoretical concepts into practical engineering solutions through software implementation, robotics systems, and 3D CAD design.
+
+---
+
 ## Projects
 
->>>>>>> a0e6940d5c18c9d273ca9adc5c2f77f862a5f55a
+This section includes selected projects related to robotics, mechanical design, simulation, and machine learning applications in engineering.
+
+---
 
 ## Skills
 
-- **Programming Languages:** C/C++, Python
-<<<<<<< HEAD
-- **Tools & Platforms:** Git, Github, MATLAB, Linux,Excel
-- **Other Skills:** Problem-solving, Project Management, Teamwork
+**Programming Languages:**  
+- C/C++  
+- Python  
 
-=======
-- **Tools & Platforms:** Git, Github, MATLAB, Linux, EXCEL
-- **Other Skills:** Problem-solving, Project Management, Teamwork
+**Tools & Platforms:**  
+- Git & GitHub  
+- MATLAB  
+- Linux  
+- Excel  
+- SolidWorks  
+- CATIA  
+- ANSYS  
+
+**Other Skills:**  
+- Mechanical Design  
+- Robotics Systems  
+- Problem Solving  
+- Project Management  
+- Team Collaboration  
+
+---
 
 ## Experience
 
--
+- **Machine Learning Research Intern** – ANK (Accelerated Komputing)  
+- **Product Design Intern** – Yatri Motorcycles  
+- **ABU Robocon 2023 Participant** – Represented Nepal in the international robotics competition in Phnom Penh, Cambodia (Mabuchi Motor Award)
+
+---
 
 ## Education
 
+**Bachelor of Engineering in Mechanical Engineering**  
+Pulchowk Campus, Institute of Engineering, Tribhuvan University  
+Nepal
 
+---
 
 ## Contact
 
->>>>>>> a0e6940d5c18c9d273ca9adc5c2f77f862a5f55a
+- **Email:** sharmasomeet4444@gmail.com  
+- **LinkedIn:** https://www.linkedin.com  
+- **GitHub:** https://github.com
