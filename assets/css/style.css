@@ -1104,6 +1104,30 @@ main {
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
   line-height: 1.6;
+  list-style-type: disc;   /* shows bullet points */
+  padding-left: 20px;      /* spacing from left */
+}
+
+.blog-text li {
+  list-style-type: disc;   /* override global reset */
+  padding-left: 20px;      /* spacing from left */
+  margin-bottom: 15px;     /* spacing between items */
+}
+
+.blog-content ol {
+  list-style-type: decimal; /* shows numbers */
+  padding-left: 30px;       /* spacing from left for numbers */
+  margin: 15px 0;           /* spacing around list */
+}
+
+.blog-content ol li {
+  list-style-type: decimal;  /* shows numbers */
+  padding-left: 10px;        /* spacing between number and text */
+  margin-bottom: 15px;       /* spacing between items */
+  font-size: 16px;           /* consistent font size */
+  line-height: 1.6;          /* proper line height */
+  color: var(--light-gray);  /* text color */
+  display: list-item;        /* ensure list item display */
 }
 
 
