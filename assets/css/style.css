@@ -1028,9 +1028,15 @@ main {
 
 .blog-posts { margin-bottom: 10px; }
 
-.blog-posts-list {
+/* .blog-posts-list {
   display: grid;
   grid-template-columns: 1fr;
+  gap: 20px;
+} */
+
+.blog-posts-list {
+  display: grid;
+  grid-template-columns: 1fr !important;
   gap: 20px;
 }
 
@@ -1129,6 +1135,8 @@ main {
   color: var(--light-gray);  /* text color */
   display: list-item;        /* ensure list item display */
 }
+
+
 
 
 
