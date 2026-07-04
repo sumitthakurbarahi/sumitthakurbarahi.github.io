@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+
+
+<!-- Tailwind Configuration .JS -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#62259b",
+                      "on-tertiary": "#2d2a5b",
+                      "on-primary": "#3c0091",
+                      "on-tertiary-fixed": "#181445",
+                      "on-background": "#e0e3e5",
+                      "on-tertiary-fixed-variant": "#444173",
+                      "tertiary": "#c4c1fb",
+                      "primary-fixed-dim": "#d0bcff",
+                      "secondary": "#ddb8ff",
+                      "error-container": "#93000a",
+                      "surface-container": "#1d2022",
+                      "on-primary-fixed": "#23005c",
+                      "surface-container-highest": "#323537",
+                      "secondary-fixed-dim": "#ddb8ff",
+                      "on-error": "#690005",
+                      "surface-container-lowest": "#0b0f10",
+                      "surface": "#101415",
+                      "on-surface-variant": "#cbc3d7",
+                      "tertiary-fixed-dim": "#c4c1fb",
+                      "inverse-primary": "#6d3bd7",
+                      "surface-container-high": "#272a2c",
+                      "background": "#101415",
+                      "outline": "#958ea0",
+                      "on-surface": "#e0e3e5",
+                      "inverse-surface": "#e0e3e5",
+                      "tertiary-fixed": "#e3dfff",
+                      "inverse-on-surface": "#2d3133",
+                      "on-secondary-container": "#d1a1ff",
+                      "primary-container": "#a078ff",
+                      "on-primary-container": "#340080",
+                      "secondary-container": "#62259b",
+                      "surface-tint": "#d0bcff",
+                      "on-error-container": "#ffdad6",
+                      "primary-fixed": "#e9ddff",
+                      "on-secondary-fixed": "#2c0051",
+                      "tertiary-container": "#8e8bc2",
+                      "outline-variant": "#494454",
+                      "surface-container-low": "#191c1e",
+                      "error": "#ffb4ab",
+                      "on-secondary": "#490081",
+                      "on-tertiary-container": "#262354",
+                      "on-primary-fixed-variant": "#5516be",
+                      "surface-dim": "#101415",
+                      "surface-variant": "#323537",
+                      "primary": "#d0bcff",
+                      "surface-bright": "#363a3b",
+                      "secondary-fixed": "#f0dbff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-padding": "120px",
+                      "gutter": "24px",
+                      "card-padding": "32px",
+                      "container-max": "1200px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "headline-sm": ["Plus Jakarta Sans"],
+                      "body-lg": ["Inter"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "display-lg": ["Plus Jakarta Sans"],
+                      "label-caps": ["Inter"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+
+
+
+<!-- Tailwind Configuration .css -->
+<style>
+        body {
+            background-color: #101415;
+            color: #e0e3e5;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(30, 34, 40, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glow-effect {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(160, 120, 255, 0.1) 0%, rgba(16, 20, 21, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .project-card {
+            background: #111516;
+            border: 1px solid rgba(149, 142, 160, 0.1);
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            border-color: rgba(160, 120, 255, 0.4);
+            transform: translateY(-4px);
+        }
+        .resume-timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -42px;
+            top: 4px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #a078ff;
+            border: 4px solid #101415;
+            box-shadow: 0 0 0 2px rgba(160, 120, 255, 0.35);
+        }
+    </style>
+</head>
+
+
+
+
+
+<body class="font-body-md overflow-x-hidden">
+
+
+
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-950/60 backdrop-blur-md dark:bg-slate-950/80 border-b border-white/10 shadow-2xl shadow-violet-900/20">
+<div class="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
+
+<div class="text-xl font-bold tracking-tight text-slate-100 dark:text-white font-headline-md">PERSONAL_PORTFOLIO</div>
+
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-caps text-slate-400 dark:text-slate-500 hover:text-violet-300 transition-all duration-300" href="#projects">Projects</a>
+<a class="font-label-caps text-slate-400 dark:text-slate-500 hover:text-violet-300 transition-all duration-300" href="#experience">Experience</a>
+<a class="font-label-caps text-slate-400 dark:text-slate-500 hover:text-violet-300 transition-all duration-300" href="#skills">Skills</a>
+<a class="font-label-caps text-slate-400 dark:text-slate-500 hover:text-violet-300 transition-all duration-300" href="#about">About</a>
+<a class="font-label-caps text-slate-400 dark:text-slate-500 hover:text-violet-300 transition-all duration-300" href="#contact">Contact</a>
+</nav>
+
+
+<div class="flex items-center gap-4">
+
+  <!-- Mail -->
+  <a href="mailto:sharmasomeet4444@gmail.com" aria-label="Send email">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" class="text-violet-500 cursor-pointer hover:opacity-70">
+      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+    </svg>
+  </a>
+
+  <!-- GitHub -->
+  <a href="https://github.com/sumitthakurbarahi" target="_blank" rel="noopener noreferrer" aria-label="View GitHub profile">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" class="text-violet-500 cursor-pointer hover:opacity-70">
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.03c-3.34.72-4.04-1.6-4.04-1.6-.55-1.38-1.34-1.75-1.34-1.75-1.1-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.48 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.83.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/>
+    </svg>
+  </a>
+
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/in/someet-sharma" target="_blank" rel="noopener noreferrer" aria-label="View LinkedIn profile">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" class="text-violet-500 cursor-pointer hover:opacity-70">
+      <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.27V1.73C24 .77 23.2 0 22.22 0z"/>
+    </svg>
+  </a>
+
+  <!-- Code -->
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" class="text-violet-500 cursor-pointer hover:opacity-70">
+    <path d="M8.7 15.9 4.8 12l3.9-3.9a1 1 0 0 0-1.4-1.4l-4.6 4.6a1 1 0 0 0 0 1.4l4.6 4.6a1 1 0 0 0 1.4-1.4zm6.6 0 3.9-3.9-3.9-3.9a1 1 0 0 1 1.4-1.4l4.6 4.6a1 1 0 0 1 0 1.4l-4.6 4.6a1 1 0 0 1-1.4-1.4z"/>
+  </svg>
+
+</div>
+
+
+
+
+
+</div>
+</header>
+<main class="relative">
+<div class="glow-effect top-0 left-0"></div>
+<div class="glow-effect top-1/4 right-0"></div>
+
+
+
+<!-- Hero Section -->
+<section class="pt-40 pb-24 px-8 max-w-[1200px] mx-auto min-h-[90vh] flex flex-col md:flex-row items-center gap-16" id="home">
+<div class="flex-1 order-2 md:order-1">
+<span class="text-primary font-label-caps mb-4 block">MECHANICAL ENGINEER &amp; AI ENTHUSIAST</span>
+
+
+<h1 class="font-display-lg text-display-lg mb-6 leading-tight">Hi, I am <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Sumit Thakur Barahi</span></h1>
+
+
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-10">
+                A dedicated Mechanical Engineering student bridging the gap between hardware and software. 
+                Specializing in Robotics, Product Design, and AI/ML to build the next generation of intelligent machines.
+            </p>
+
+
+
+<!-- Call to Action Buttons -->  
+ 
+<!-- View My Work -->
+<div class="flex flex-wrap gap-6 items-center">
+<button class="bg-primary px-8 py-4 rounded-xl text-on-primary font-headline-sm flex items-center gap-2 hover:bg-primary-container transition-colors shadow-lg shadow-primary/20">
+                    View My Work
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+
+
+<!-- Resume Download -->
+<!-- <button
+    class="border border-outline/30 px-8 py-4 rounded-xl text-on-surface font-headline-sm flex items-center gap-2 hover:border-primary transition-all"
+    onclick="window.open('https://drive.google.com/uc?export=download&id=1xI-PJlV4yQHfGVgBis9PmW-4Q09kiNtc', '_blank')">
+    Resume
+    <span class="material-symbols-outlined" data-icon="download">download</span>
+</button> -->
+
+</div>
+</div>
+
+
+<!-- Website profile image -->
+<div class="flex-1 order-1 md:order-2 flex justify-center">
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-[2rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+
+
+<img alt="Sumit Thakur Barahi" class="relative w-80 h-96 object-cover rounded-[2rem] border border-white/10" src="./asset/images/someet_2.jpg"/>
+</div>
+</div>
+
+</section>
+
+
+
+
+
+
+
+<!-- Stats Section -->
+<section class="py-12 px-8 max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="glass-card p-card-padding rounded-xl text-center">
+<span class="material-symbols-outlined text-primary mb-2 block" data-icon="engineering">engineering</span>
+<div class="text-headline-md font-display-lg text-primary">5+</div>
+<div class="font-label-caps text-on-surface-variant">Projects</div>
+</div>
+<div class="glass-card p-card-padding rounded-xl text-center">
+<span class="material-symbols-outlined text-primary mb-2 block" data-icon="description">description</span>
+<div class="text-headline-md font-display-lg text-primary">00</div>
+<div class="font-label-caps text-on-surface-variant">Research Papers</div>
+</div>
+<div class="glass-card p-card-padding rounded-xl text-center">
+<span class="material-symbols-outlined text-primary mb-2 block" data-icon="workspace_premium">workspace_premium</span>
+<div class="text-headline-md font-display-lg text-primary">11+</div>
+<div class="font-label-caps text-on-surface-variant">Certifications</div>
+</div>
+<div class="glass-card p-card-padding rounded-xl text-center">
+<span class="material-symbols-outlined text-primary mb-2 block" data-icon="psychology">psychology</span>
+<div class="text-headline-md font-display-lg text-primary">15+</div>
+<div class="font-label-caps text-on-surface-variant">Technical Skills</div>
+</div>
+</section>
+
+
+
+
+
+<!-- Resume / Experience Section -->
+<section class="py-section-padding px-8 max-w-[1200px] mx-auto" id="experience">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+    <div>
+        <span class="text-primary font-label-caps">MY JOURNEY</span>
+        <h2 class="font-headline-md text-display-lg mt-2">Resume &amp; Experience</h2>
+    </div>
+    <div class="flex gap-4">
+        <a class="bg-primary-container text-on-primary-container px-8 py-3 rounded-xl font-label-caps flex items-center gap-2 hover:opacity-90 transition-all" href="https://drive.google.com/uc?export=download&id=1xI-PJlV4yQHfGVgBis9PmW-4Q09kiNtc" target="_blank">
+                            Download CV <span class="material-symbols-outlined text-lg" data-icon="download">download</span>
+        </a>
+    </div>
+</div>
+
+<div class="grid md:grid-cols-2 gap-16">
+
+
+    <!-- Professional Experience -->
+    <div class="space-y-12">
+    <h3 class="font-headline-sm text-on-surface flex items-center gap-3">
+    <span class="material-symbols-outlined text-primary" data-icon="work">work</span> Professional Experience
+                    </h3>
+
+    <div class="border-l-2 border-primary/20 ml-2 pl-8 space-y-12 relative">
+    <div class="relative resume-timeline-item">
+    <div class="mb-1">
+    <span class="text-primary font-label-caps">  2023 - PRESENT</span>
+    <h4 class="text-xl font-headline-sm mt-1">Lead Mechanical Designer</h4>
+    <p class="text-on-surface-variant font-medium">ABU Robocon Team</p>
+    </div>
+    <p class="text-body-md text-on-surface-variant mt-4">
+                                Directing the mechanical synthesis of competition-grade robots. Optimized chassis weight by 15% using generative design while maintaining structural integrity for high-impact tasks.
+                            </p>
+    </div>
+    <div class="relative resume-timeline-item">
+    <div class="mb-1">
+    <span class="text-primary font-label-caps">  2022 - 2023</span>
+    <h4 class="text-xl font-headline-sm mt-1">Robotics Research Intern</h4>
+    <p class="text-on-surface-variant font-medium">Innovation Tech Labs</p>
+    </div>
+    <p class="text-body-md text-on-surface-variant mt-4">
+                                Assisted in developing low-cost autonomous navigation systems. Focused on integrating LiDAR sensor fusion with ROS2 for warehouse automation prototypes.
+                            </p>
+    </div>
+    </div>
+    </div>
+
+    <!-- Education & Achievements -->
+    <div class="space-y-12">
+        <h3 class="font-headline-sm text-on-surface flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary" data-icon="school">school</span> Education
+        </h3>
+        <div class="border-l-2 border-primary/20 ml-2 pl-8 space-y-12 relative">
+            <div class="relative resume-timeline-item">
+            <div class="mb-1">
+            <span class="text-primary font-label-caps">2021 - 2025</span>
+            <h4 class="text-xl font-headline-sm mt-1">B.E. Mechanical Engineering</h4>
+            <p class="text-on-surface-variant font-medium">IOE Pulchowk Campus, Tribhuvan University(TU)</p>
+            </div>
+            <p class="text-body-md text-on-surface-variant mt-4">
+                                        Specializing in Design, Robotics and Artificial Intelligence and Maintaining a professional and academic skills  with several excellence awards.
+                                    </p>
+            </div>
+
+            <div class="relative resume-timeline-item">
+            <div class="mb-1">
+            <span class="text-primary font-label-caps">2018 - 2020</span>
+            <h4 class="text-xl font-headline-sm mt-1">High School</h4>
+            <p class="text-on-surface-variant font-medium">Arniko+2 Campus</p>
+            </div>
+            <p class="text-body-md text-on-surface-variant mt-4">
+                                        Studied my higher secondary education for the foundation of my basic knowledge.
+                                    </p>
+            </div>
+
+        </div>
+
+
+
+
+
+        
+    </div>
+</div>
+
+<!-- Key Achievements -->
+        <div class="glass-card p-8 rounded-2xl mt-8">
+            <h4 class="font-headline-sm mb-6 flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary" data-icon="stars">stars</span> Key Achievements
+            </h4>
+            <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary text-sm mt-1" data-icon="check_circle">check_circle</span>
+            <span class="text-body-md text-on-surface-variant">Represented Nepal at ABU Robocon 2022 & 2023, advancing to the Semi-finals (2022) 
+                and Quarter-finals (2023) in international robotics competitions.</span>
+            </li>
+
+            <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary text-sm mt-1" data-icon="check_circle">check_circle</span>
+            <span class="text-body-md text-on-surface-variant">Recipient of the Mabuchi Motor Award (2023) and Nagase Award (2022) for excellence 
+                in robotic system design, innovation, and engineering performance.</span>
+            </li>
+
+            <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary text-sm mt-1" data-icon="check_circle">check_circle</span>
+            <span class="text-body-md text-on-surface-variant">Developed AI-powered CAD automation pipelines and LLM-driven parametric modeling tools, 
+                improving design accuracy to 80–90% and significantly accelerating engineering workflows.</span>
+            </li>
+
+            <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary text-sm mt-1" data-icon="check_circle">check_circle</span>
+            <span class="text-body-md text-on-surface-variant">Mentored over 500+ engineering students through Hardware Fellowship, SolidWorks Fellowship, 
+                and ABU Robocon, teaching CAD, robotics, embedded systems, and control engineering.</span>
+            </li>
+            </ul>
+
+            
+
+            <div class="flex justify-center mt-8">
+                <button class="text-primary font-label-caps flex items-center gap-2 hover:underline">
+                    VIEW MY FULL RESUME
+                    <span class="material-symbols-outlined text-sm" data-icon="arrow_outward">arrow_outward</span>
+                </button>
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Projects & Insights Section -->
+<section class="py-section-padding px-8 max-w-[1200px] mx-auto" id="projects">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+<div>
+<span class="text-primary font-label-caps">PORTFOLIO</span>
+<h2 class="font-headline-md text-display-lg mt-2">Projects &amp; Insights</h2>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2 rounded-full border border-primary text-primary font-label-caps hover:bg-primary hover:text-on-primary transition-all">All</button>
+<button class="px-6 py-2 rounded-full border border-outline/30 text-on-surface-variant font-label-caps hover:border-primary transition-all">Engineering</button>
+<button class="px-6 py-2 rounded-full border border-outline/30 text-on-surface-variant font-label-caps hover:border-primary transition-all">Articles</button>
+</div>
+</div>
+
+
+<div class="space-y-12">
+
+
+
+    
+<!-- Project 1: Smartscope (Featured High) -->
+<!-- <div class="project-card rounded-2xl overflow-hidden flex flex-col lg:flex-row shadow-2xl border-primary/20">
+<div class="lg:w-3/5 h-[400px] relative overflow-hidden group/img">
+<img alt="Smartscope" class="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpAQikUTkC8XFGmR9VNTx38MeSQqopexRzFKipb_H8_tt3BqUPiPWLDwIbgw3MbR4qpE4NDcMSZGUbwXWNelGtoOrYALI8OfxbjGVDXURAbbmoj4-A7r4uu3zwmGfhYXL0BzBj6b_EZXRi9-Wy70V-Qr0yUjRPGMNp6Sa7OxcURq7dQaDEBVM_RG08Kig82JaTHBHFfeMDnVPZv6XERmMcE7HTg4y5UJRlM1nVrZZ-jgnX7EWAeFT8Yv6xQVBF9vAx8sMY9WOm7Lo"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-6xl" data-icon="play_circle">play_circle</span>
+</div>
+</div>
+<div class="lg:w-2/5 p-card-padding flex flex-col justify-center bg-surface-container-low">
+<span class="text-primary font-label-caps mb-2 text-sm">IOT &amp; ROBOTICS</span>
+<h3 class="font-headline-sm text-2xl mb-4 text-white">Smartscope</h3>
+<p class="text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                        An intelligent, cloud-connected microscope for real-time automated pathogen detection and analysis in remote environments. Leverages OpenCV for image processing and MQTT for secure telemetry data transmission.
+                    </p>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="bg-primary/10 text-primary border border-primary/20 px-4 py-1 rounded-full text-[11px] font-label-caps">RASPBERRY PI</span>
+<span class="bg-primary/10 text-primary border border-primary/20 px-4 py-1 rounded-full text-[11px] font-label-caps">OPENCV</span>
+<span class="bg-primary/10 text-primary border border-primary/20 px-4 py-1 rounded-full text-[11px] font-label-caps">MQTT</span>
+</div>
+</div>
+</div> -->
+
+
+
+
+
+
+<!-- Project 2: ABU Robocon Development -->
+<div class="project-card rounded-2xl overflow-hidden flex flex-col lg:flex-row-reverse shadow-2xl">
+<div class="lg:w-3/5 h-[400px] relative overflow-hidden group/img">
+<img alt="ABU Robocon" class="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110" src="./asset/images/Robocon2023.png"/>
+</div>
+<div class="lg:w-2/5 p-card-padding flex flex-col justify-center">
+    <span class="text-secondary font-label-caps mb-2 text-sm">ROBOTICS CLUB</span>
+    <h3 class="font-headline-sm text-2xl mb-4 text-white">ABU Robocon 2023</h3>
+    <span class="text-secondary font-label-caps mb-2 text-sm">International Robotics Competition</span>
+    <p class="text-body-md text-on-surface-variant mb-8 leading-relaxed">
+        Designed and engineered modular robotic systems for Team Nepal at the ABU Robocon 2023 International Robotics Competition. 
+        Responsible for mechanical architecture, CAD development, rapid prototyping, subsystem integration, and iterative testing, 
+        delivering robust autonomous systems capable of performing under the demanding conditions of international competition.
+    </p>
+    <div class="flex flex-wrap gap-2 mt-auto">
+        <span class="bg-secondary/10 text-secondary border border-secondary/20 px-4 py-1 rounded-full text-[11px] font-label-caps">Mechanical Design</span>
+        <span class="bg-secondary/10 text-secondary border border-secondary/20 px-4 py-1 rounded-full text-[11px] font-label-caps">Prototyping</span>
+        <span class="bg-secondary/10 text-secondary border border-secondary/20 px-4 py-1 rounded-full text-[11px] font-label-caps">Robotics</span>
+        <span class="bg-secondary/10 text-secondary border border-secondary/20 px-4 py-1 rounded-full text-[11px] font-label-caps">Embedded Systems</span>
+    </div>
+</div>
+</div>
+
+
+
+
+
+<!-- Project 3: Digital Mobile Microscope -->
+<div class="project-card rounded-2xl overflow-hidden flex flex-col lg:flex-row shadow-2xl">
+<div class="lg:w-3/5 h-[400px] relative overflow-hidden group/img">
+<img alt="Mobile Microscope" class="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110" src="./asset/images/Microscope.jpeg"/>
+</div>
+<div class="lg:w-2/5 p-card-padding flex flex-col justify-center">
+<span class="text-tertiary font-label-caps mb-2 text-sm">PRODUCT DESIGN</span>
+<h3 class="font-headline-sm text-2xl mb-4 text-white">Digital Mobile Microscope</h3>
+<p class="text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                        A portable microscopic imaging system integrated with mobile device sensors for on-field biological analysis. Optimization of optical path for seamless phone integration.
+                    </p>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="bg-tertiary/10 text-tertiary border border-tertiary/20 px-4 py-1 rounded-full text-[11px] font-label-caps">SOLIDWORKS</span>
+<span class="bg-tertiary/10 text-tertiary border border-tertiary/20 px-4 py-1 rounded-full text-[11px] font-label-caps">OPTICS</span>
+<span class="bg-tertiary/10 text-tertiary border border-tertiary/20 px-4 py-1 rounded-full text-[11px] font-label-caps">3D PRINTING</span>
+<span class="bg-tertiary/10 text-tertiary border border-tertiary/20 px-4 py-1 rounded-full text-[11px] font-label-caps">Embedded Systems</span>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="mt-16 text-center">
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface px-10 py-4 rounded-xl font-headline-sm transition-all border border-outline/20">
+                Browse All Projects
+            </button>
+</div>
+</section>
+
+
+
+
+
+
+
+<!-- Skills Section -->
+<section class="py-section-padding bg-surface-container-low/30" id="skills">
+  <div class="max-w-[1200px] mx-auto px-8">
+    <div class="text-center mb-16">
+      <span class="text-primary font-label-caps">TECHNICAL STACK</span>
+      <h2 class="font-headline-md text-headline-md mt-2">Core Competencies</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+
+
+      <!-- Product Design & CAD -->
+      <div class="glass-card p-card-padding rounded-xl">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="material-symbols-outlined text-primary text-4xl" data-icon="deployed_code">deployed_code</span>
+          <h3 class="font-headline-sm font-bold text-xl">Product Design & CAD</h3>
+        </div>
+        <div class="w-full h-px bg-primary/30 mb-4"></div>
+        <ul class="space-y-2 font-body-md text-on-surface-variant">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>CATIA (Advanced)</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>SolidWorks & Fusion 360</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>CAD Automation (Python API)</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>CadQuery (Parametric Design)</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>DFM & DfAM</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Sheet Metal Design</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Technical Drawing & GD&T</li>
+        </ul>
+      </div>
+
+      <!-- Robotics & Mechatronics -->
+      <div class="glass-card p-card-padding rounded-xl">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="material-symbols-outlined text-primary text-4xl" data-icon="precision_manufacturing">precision_manufacturing</span>
+          <h3 class="font-headline-sm font-bold text-xl">Robotics & Mechatronics</h3>
+        </div>
+        <div class="w-full h-px bg-primary/30 mb-4"></div>
+        <ul class="space-y-2 font-body-md text-on-surface-variant">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>ROS</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Microcontrollers</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Sensors & Actuators Integration</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Kinematics & Dynamics</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Control Systems</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Mobile Robots & Manipulators</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Autonomous Navigation</li>
+        </ul>
+      </div>
+
+      <!-- AI / ML & Deep Learning -->
+      <div class="glass-card p-card-padding rounded-xl">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="material-symbols-outlined text-primary text-4xl" data-icon="psychology">psychology</span>
+          <h3 class="font-headline-sm font-bold text-xl">AI / ML & Deep Learning</h3>
+        </div>
+        <div class="w-full h-px bg-primary/30 mb-4"></div>
+        <ul class="space-y-2 font-body-md text-on-surface-variant">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Python, NumPy, Pandas</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>PyTorch & TensorFlow</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Neural Networks (CNN, RNN, GNN)</li>
+          <!-- <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Computer Vision (OpenCV)</li> -->
+          <!-- <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Object Detection & Tracking</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Predictive Modeling</li> -->
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Model Optimization</li>
+        </ul>
+      </div>
+
+      <!-- Programming & Scripting -->
+      <div class="glass-card p-card-padding rounded-xl">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="material-symbols-outlined text-primary text-4xl" data-icon="code">code</span>
+          <h3 class="font-headline-sm font-bold text-xl">Programming & Scripting</h3>
+        </div>
+        <div class="w-full h-px bg-primary/30 mb-4"></div>
+        <ul class="space-y-2 font-body-md text-on-surface-variant">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Python (Advanced)</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>C/C++</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>MATLAB</li>
+          <!-- <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Embedded C</li> -->
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Git & GitHub</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Linux (Ubuntu)</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Jupyter / Colab</li>
+        </ul>
+      </div>
+
+      <!-- Simulation & Analysis -->
+      <div class="glass-card p-card-padding rounded-xl">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="material-symbols-outlined text-primary text-4xl" data-icon="grid_view">grid_view</span>
+          <h3 class="font-headline-sm font-bold text-xl">Simulation & Analysis</h3>
+        </div>
+        <div class="w-full h-px bg-primary/30 mb-4"></div>
+        <ul class="space-y-2 font-body-md text-on-surface-variant">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Finite Element Analysis (FEA)</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Ansys / SolidWorks Simulation</li>
+          <!-- <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Computational Fluid Dynamics (CFD)</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Kinematic & Dynamic Simulation</li> -->
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Structural Analysis</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Design Optimization</li>
+        </ul>
+      </div>
+
+      <!-- Manufacturing & Prototyping -->
+      <div class="glass-card p-card-padding rounded-xl">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="material-symbols-outlined text-primary text-4xl" data-icon="build">build</span>
+          <h3 class="font-headline-sm font-bold text-xl">Manufacturing & Prototyping</h3>
+        </div>
+        <div class="w-full h-px bg-primary/30 mb-4"></div>
+        <ul class="space-y-2 font-body-md text-on-surface-variant">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>3D Printing (FDM)</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>CNC Machining Basics</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Laser Cutting</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Additive Manufacturing</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Tolerance & Fit Analysis</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Rapid Prototyping</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Workshop Practice</li>
+        </ul>
+      </div>
+
+      <!-- Computer Vision & Perception -->
+      <!-- <div class="glass-card p-card-padding rounded-xl">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="material-symbols-outlined text-primary text-4xl" data-icon="visibility">visibility</span>
+          <h3 class="font-headline-sm font-bold text-xl">Computer Vision & Perception</h3>
+        </div>
+        <div class="w-full h-px bg-primary/30 mb-4"></div>
+        <ul class="space-y-2 font-body-md text-on-surface-variant">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Image Processing</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Deep Learning for Vision</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Object Detection (YOLO, SSD)</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Feature Extraction</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Camera Calibration</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>SLAM (Basic)</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Visual Servoing</li>
+        </ul>
+      </div> -->
+
+      <!-- Data & Analytics -->
+      <div class="glass-card p-card-padding rounded-xl">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="material-symbols-outlined text-primary text-4xl" data-icon="bar_chart">bar_chart</span>
+          <h3 class="font-headline-sm font-bold text-xl">Data & Analytics</h3>
+        </div>
+        <div class="w-full h-px bg-primary/30 mb-4"></div>
+        <ul class="space-y-2 font-body-md text-on-surface-variant">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Data Analysis & Visualization</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Matplotlib, Seaborn, Plotly</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Scikit-learn</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Time Series Analysis</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Excel (Advanced)</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Performance Evaluation</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Dashboarding (Streamlit Basics)</li>
+        </ul>
+      </div>
+
+      <!-- Competitions & Leadership -->
+      <div class="glass-card p-card-padding rounded-xl">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="material-symbols-outlined text-primary text-4xl" data-icon="emoji_events">emoji_events</span>
+          <h3 class="font-headline-sm font-bold text-xl">Competitions & Leadership</h3>
+        </div>
+        <div class="w-full h-px bg-primary/30 mb-4"></div>
+        <ul class="space-y-2 font-body-md text-on-surface-variant">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>ABU Robocon 2023 – Team Nepal</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Mabuchi Motor Award Winner</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Team Leadership & Coordination</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Strategy, Problem Solving Under Pressure</li>
+        </ul>
+      </div>
+
+      <!-- Soft Skills -->
+      <div class="glass-card p-card-padding rounded-xl">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="material-symbols-outlined text-primary text-4xl" data-icon="lightbulb">lightbulb</span>
+          <h3 class="font-headline-sm font-bold text-xl">Soft Skills</h3>
+        </div>
+        <div class="w-full h-px bg-primary/30 mb-4"></div>
+        <ul class="space-y-2 font-body-md text-on-surface-variant">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Problem Solving</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Critical Thinking</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Adaptability & Fast Learning</li>
+          <!-- <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Communication</li> -->
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Teamwork & Collaboration</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Project Management</li>
+        </ul>
+      </div>
+
+      <!-- Interests & Passions -->
+      <div class="glass-card p-card-padding rounded-xl">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="material-symbols-outlined text-primary text-4xl" data-icon="eco">eco</span>
+          <h3 class="font-headline-sm font-bold text-xl">Interests & Passions</h3>
+        </div>
+        <div class="w-full h-px bg-primary/30 mb-4"></div>
+        <ul class="space-y-2 font-body-md text-on-surface-variant">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Robotics & Automation</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>AI in Engineering</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Product Development</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Sustainable Design</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Research & Experimentation</li>
+        </ul>
+      </div>
+
+      <!-- Languages -->
+      <!-- <div class="glass-card p-card-padding rounded-xl">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="material-symbols-outlined text-primary text-4xl" data-icon="language">language</span>
+          <h3 class="font-headline-sm font-bold text-xl">Languages</h3>
+        </div>
+        <div class="w-full h-px bg-primary/30 mb-4"></div>
+        <ul class="space-y-2 font-body-md text-on-surface-variant">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>English (Fluent)</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Nepali (Native)</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>Hindi (Conversational)</li>
+        </ul>
+      </div> -->
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- About Me Section -->
+<section class="py-section-padding px-8 max-w-[1200px] mx-auto" id="about">
+  <div class="grid md:grid-cols-2 gap-16 items-start">
+
+    <!-- LEFT COLUMN -->
+    <div>
+      <span class="text-primary font-label-caps tracking-widest block mb-4">BACKGROUND</span>
+      <h2 class="font-headline-md text-display-lg mb-6">Engineering Impact<br/>with Robotics Intelligence</h2>
+      <div class="w-20 h-1 bg-primary rounded-full mb-8"></div>
+
+      <p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
+        My journey is driven by a simple belief: the best solutions emerge where curiosity meets purpose. 
+        From understanding how systems move to teaching them how to move andthink, I've chosen to build at the 
+        intersection of mechanics, Robotics, intelligence, and real-world impact.
+      </p>
+
+      <!-- Timeline -->
+      <div class="space-y-0">
+
+        <!-- Step 1 -->
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-purple-900 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-white text-xl" data-icon="school">school</span>
+            </div>
+            <div class="w-0.5 bg-primary/30 flex-1 my-1"></div>
+          </div>
+          <div class="pb-8">
+            <h4 class="text-primary font-headline-sm mb-1">Building the Foundation</h4>
+            <p class="text-body-md text-on-surface-variant">Pursuing Mechanical Engineering to understand how things move, endure, and transform ideas into reality.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-purple-900 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-white text-xl" data-icon="smart_toy">smart_toy</span>
+            </div>
+            <div class="w-0.5 bg-primary/30 flex-1 my-1"></div>
+          </div>
+          <div class="pb-8">
+            <h4 class="text-primary font-headline-sm mb-1">Expanding the Lens</h4>
+            <p class="text-body-md text-on-surface-variant">Discovering AI & Robotics—where machines don't just move, they perceive, learn, and adapt.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-purple-900 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-white text-xl" data-icon="rocket">rocket</span>
+            </div>
+          </div>
+          <div class="pb-2">
+            <h4 class="text-primary font-headline-sm mb-1">Designing for Impact</h4>
+            <p class="text-body-md text-on-surface-variant">Combining deep learning, robotics, and engineering design to solve meaningful problems at scale.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div>
+
+      <!-- Top paragraphs -->
+      <div class="space-y-6 text-on-surface-variant mb-10">
+        <p class="font-body-lg text-body-lg">
+          I graduated with a Bachelor's degree in Mechanical Engineering from Pulchowk Campus, IOE. 
+          My fascination with understanding how machines move gradually evolved into exploring how intelligent systems perceive, learn, and make decisions. 
+          This journey—from robotics and ABU Robocon to AI-powered product design—has shaped my passion for building engineering solutions 
+          that bridge the physical and digital worlds.
+        </p>
+        <p class="font-body-lg text-body-lg">
+          What I'm doing now focuses on the intersection of deep learning and physical systems. 
+          I'm actively developing algorithms for robotic vision and exploring ways to integrate AI/ML into sustainable product life cycles.
+        </p>
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-outline/20 mb-6"></div>
+
+      <!-- Feature items -->
+      <div class="divide-y divide-outline/20">
+
+        <!-- Innovation First -->
+        <div class="flex items-start gap-4 py-5">
+          <div class="w-12 h-12 rounded-full bg-purple-900 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-white text-xl" data-icon="lightbulb">lightbulb</span>
+          </div>
+          <div>
+            <h4 class="font-headline-sm text-on-surface mb-1">Innovation First</h4>
+            <p class="text-body-md text-on-surface-variant">Applying computational methods to solve complex structural and robotic engineering problems.</p>
+          </div>
+        </div>
+
+        <!-- Systems Thinker -->
+        <div class="flex items-start gap-4 py-5">
+          <div class="w-12 h-12 rounded-full bg-purple-900 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-white text-xl" data-icon="my_location">my_location</span>
+          </div>
+          <div>
+            <h4 class="font-headline-sm text-on-surface mb-1">Systems Thinker</h4>
+            <p class="text-body-md text-on-surface-variant">Bridging mechanical design with intelligent algorithms to build smarter, more adaptive systems.</p>
+          </div>
+        </div>
+
+        <!-- Purpose Driven -->
+        <div class="flex items-start gap-4 py-5">
+          <div class="w-12 h-12 rounded-full bg-purple-900 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-white text-xl" data-icon="public">public</span>
+          </div>
+          <div>
+            <h4 class="font-headline-sm text-on-surface mb-1">Purpose Driven</h4>
+            <p class="text-body-md text-on-surface-variant">Driven by the goal of creating technology that delivers impact—efficiently, sustainably, and responsibly.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- Certifications Section -->
+<section class="py-section-padding bg-surface-container-low/30">
+    <div class="max-w-[1200px] mx-auto px-8">
+        <div class="mb-16">
+            <span class="text-primary font-label-caps">CREDENTIALS</span>
+            <h2 class="font-headline-md text-headline-md mt-2">Certifications</h2>
+        </div>
+
+
+        
+        <ul class="clients-list has-scrollbar">
+
+            <!-- Certifications List_1 -->
+            <li class="glass-card flex flex-col gap-4 p-8 rounded-xl group hover:border-primary transition-all">
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-16 bg-surface-container-highest rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-primary text-3xl" data-icon="workspace_premium">workspace_premium</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline-sm text-lg">Microdegree™ in Artificial Intelligence</h4>
+                        <p class="text-body-md text-on-surface-variant">Fusemachines AI - (2025)</p>
+                    </div>
+                </div>
+                <img
+                  src="./asset/images/certificates/Microdegree™+in+Artificial+Intelligence+2025-SUMIT+THAKUR+BARAHI_page-0001.jpg"
+                  class="rounded-lg w-full"
+                />
+            </li>
+
+
+
+            <!-- Certifications List_2 -->
+            <li class="glass-card flex flex-col gap-4 p-8 rounded-xl group hover:border-primary transition-all">
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-16 bg-surface-container-highest rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-primary text-3xl" data-icon="workspace_premium">workspace_premium</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline-sm text-lg">Solidworks CAD Design Associate</h4>
+                        <p class="text-body-md text-on-surface-variant">Dassault Systèmes - (August 23 2025)</p>
+                    </div>
+                </div>
+                <img
+                  src="./asset/images/certificates/Solidworks CAD Design Associate.jpg"
+                  class="rounded-lg w-full"
+                />
+            </li>
+
+
+
+
+            <!-- Certifications List_3 -->
+            <li class="glass-card flex flex-col gap-4 p-8 rounded-xl group hover:border-primary transition-all">
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-16 bg-surface-container-highest rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-primary text-3xl" data-icon="workspace_premium">workspace_premium</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline-sm text-lg">Decoration Manager</h4>
+                        <p class="text-body-md text-on-surface-variant">NTBNS - (Magh 21 2081)</p>
+                    </div>
+                </div>
+                <img
+                  src="./asset/images/certificates/Decoration_Coordinator_certificate.jpg"
+                  class="rounded-lg w-full"
+                />
+            </li>
+
+
+
+
+            <!-- Certifications List_4 -->
+            <li class="glass-card flex flex-col gap-4 p-8 rounded-xl group hover:border-primary transition-all">
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-16 bg-surface-container-highest rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-primary text-3xl" data-icon="workspace_premium">workspace_premium</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline-sm text-lg">Certificate of Internship</h4>
+                        <p class="text-body-md text-on-surface-variant">Ank - (2024)</p>
+                    </div>
+                </div>
+                <img
+                  src="./asset/images/certificates/AnK certificate1.png"
+                  class="rounded-lg w-full"
+                />
+            </li>
+
+
+
+            <!-- Certifications List_5 -->
+            <li class="glass-card flex flex-col gap-4 p-8 rounded-xl group hover:border-primary transition-all">
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-16 bg-surface-container-highest rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-primary text-3xl" data-icon="workspace_premium">workspace_premium</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline-sm text-lg">Mentor in Hardware Fellowship</h4>
+                        <p class="text-body-md text-on-surface-variant">LOCUS(2025) and Robotics Club - (2024)</p>
+                    </div>
+                </div>
+                <img
+                  src="./asset/images/certificates/HardwareFellowshipMentor_certificate.jpg"
+                  class="rounded-lg w-full"
+                />
+            </li>
+
+
+
+            <!-- Certifications List_6 -->
+            <li class="glass-card flex flex-col gap-4 p-8 rounded-xl group hover:border-primary transition-all">
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-16 bg-surface-container-highest rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-primary text-3xl" data-icon="workspace_premium">workspace_premium</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline-sm text-lg">Instructor in Solidworks Workshop</h4>
+                        <p class="text-body-md text-on-surface-variant">Robotics Club - (2024)</p>
+                    </div>
+                </div>
+                <img
+                  src="./asset/images/certificates/solidworks_instructor_certificate.jpg"
+                  class="rounded-lg w-full"
+                />
+            </li>
+
+
+
+            <!-- Certifications List_7 -->
+            <li class="glass-card flex flex-col gap-4 p-8 rounded-xl group hover:border-primary transition-all">
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-16 bg-surface-container-highest rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-primary text-3xl" data-icon="workspace_premium">workspace_premium</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline-sm text-lg">3D Design Hackathon Competition in MechTrix</h4>
+                        <p class="text-body-md text-on-surface-variant">SOMAES - (2024)</p>
+                    </div>
+                </div>
+                <img
+                  src="./asset/images/certificates/3D_DesignHackathon_Certificate.jpg"
+                  class="rounded-lg w-full"
+                />
+            </li>
+
+
+
+            <!-- Certifications List_8 -->
+            <li class="glass-card flex flex-col gap-4 p-8 rounded-xl group hover:border-primary transition-all">
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-16 bg-surface-container-highest rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-primary text-3xl" data-icon="workspace_premium">workspace_premium</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline-sm text-lg">Coordinator in the BE Project Demonstration in MechTRIX 2080</h4>
+                        <p class="text-body-md text-on-surface-variant">SOMAES - (2024)</p>
+                    </div>
+                </div>
+                <img
+                  src="./asset/images/certificates/BE_Project_Coordinator_page-0001.jpg"
+                  class="rounded-lg w-full"
+                />
+            </li>
+
+
+            <!-- Certifications List_9 -->
+            <li class="glass-card flex flex-col gap-4 p-8 rounded-xl group hover:border-primary transition-all">
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-16 bg-surface-container-highest rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-primary text-3xl" data-icon="workspace_premium">workspace_premium</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline-sm text-lg">Coding and Programming Course</h4>
+                        <p class="text-body-md text-on-surface-variant">Samsung Innovation Campus - (2023-2024)</p>
+                    </div>
+                </div>
+                <img
+                  src="./asset/images/certificates/python_certificate.jpg"
+                  class="rounded-lg w-full"
+                />
+            </li>
+
+
+            <!-- Certifications List_10 -->
+            <li class="glass-card flex flex-col gap-4 p-8 rounded-xl group hover:border-primary transition-all">
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-16 bg-surface-container-highest rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-primary text-3xl" data-icon="workspace_premium">workspace_premium</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline-sm text-lg">Mentor Solidworks Workshop</h4>
+                        <p class="text-body-md text-on-surface-variant">Robotics Club - (2023)</p>
+                    </div>
+                </div>
+                <img
+                  src="./asset/images/certificates/SolidworksMentor_Certificate.jpg"
+                  class="rounded-lg w-full"
+                />
+            </li>
+
+
+            <!-- Certifications List_11 -->
+            <li class="glass-card flex flex-col gap-4 p-8 rounded-xl group hover:border-primary transition-all">
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-16 bg-surface-container-highest rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-primary text-3xl" data-icon="workspace_premium">workspace_premium</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline-sm text-lg">Sub Coordinator in the BE Project Demonstration in MechTRIX 2023</h4>
+                        <p class="text-body-md text-on-surface-variant">SOMAES - (2023)</p>
+                    </div>
+                </div>
+                <img
+                  src="./asset/images/certificates/BE_Project_Sub-Coordinator.jpg"
+                  class="rounded-lg w-full"
+                />
+            </li>
+
+
+            <!-- Certifications List_12 -->
+            <li class="glass-card flex flex-col gap-4 p-8 rounded-xl group hover:border-primary transition-all">
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-16 bg-surface-container-highest rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-primary text-3xl" data-icon="workspace_premium">workspace_premium</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline-sm text-lg">7-day workshop on ANSYS organized by SOMES 2022</h4>
+                        <p class="text-body-md text-on-surface-variant">SOMAES - (2022)</p>
+                    </div>
+                </div>
+                <img
+                  src="./asset/images/certificates/AnsysWorkshop_certificate.jpg"
+                  class="rounded-lg w-full"
+                />
+            </li>
+
+
+            <!-- Add more <li> items here for additional certificates -->
+        </ul>
+    </div>
+</section>
+
+
+
+
+<style>
+    .clients-list {
+        display: flex;
+        gap: 2rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        list-style: none;
+        margin: 0;
+        padding: 0 0 1.25rem 0;
+        scroll-behavior: smooth;
+        scroll-snap-type: x proximity;
+    }
+
+    .clients-list > li {
+        flex: 0 0 560px; /* increased width to match larger card size */
+        max-width: 560px;
+        scroll-snap-align: start;
+    }
+
+    .clients-list > li img {
+        max-height: 340px;
+        object-fit: cover;
+    }
+
+    /* Custom scrollbar */
+    .has-scrollbar::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .has-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 8px;
+    }
+
+    .has-scrollbar::-webkit-scrollbar-thumb {
+        background-color: var(--md-sys-color-primary, #6750A4);
+        border-radius: 8px;
+    }
+
+    .has-scrollbar {
+        scrollbar-width: thin;
+        scrollbar-color: var(--md-sys-color-primary, #6750A4) transparent;
+    }
+
+    @media (max-width: 768px) {
+        .clients-list > li {
+            flex: 0 0 90vw;
+            max-width: 90vw;
+        }
+        .clients-list > li img {
+            max-height: 240px;
+        }
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+<!-- Contact Section -->
+<section class="py-section-padding px-8 max-w-[1200px] mx-auto" id="contact">
+<div class="glass-card rounded-3xl p-12 overflow-hidden relative">
+<div class="glow-effect -bottom-20 -right-20"></div>
+<div class="grid md:grid-cols-2 gap-16 relative z-10">
+<div>
+<h2 class="font-display-lg text-display-lg mb-8">Let's <br/><span class="text-primary">collaborate</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">Open for research partnerships, internship opportunities, or interesting robotics projects.</p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="alternate_email">alternate_email</span>
+<a class="font-body-md text-primary hover:underline" href="mailto:sharmasomeet4444@gmail.com">sharmasomeet4444@gmail.com</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+<span class="font-body-md">Kathmandu, Nepal</span>
+</div>
+</div>
+</div>
+<form class="space-y-6">
+<div>
+<label class="font-label-caps text-on-surface-variant block mb-2">FULL NAME</label>
+<input class="w-full bg-white/5 border-0 border-b border-white/20 focus:ring-0 focus:border-primary py-3 transition-all" placeholder="Enter your name" type="text"/>
+</div>
+<div>
+<label class="font-label-caps text-on-surface-variant block mb-2">EMAIL ADDRESS</label>
+<input class="w-full bg-white/5 border-0 border-b border-white/20 focus:ring-0 focus:border-primary py-3 transition-all" placeholder="Enter your email" type="email"/>
+</div>
+<div>
+<label class="font-label-caps text-on-surface-variant block mb-2">MESSAGE</label>
+<textarea class="w-full bg-white/5 border-0 border-b border-white/20 focus:ring-0 focus:border-primary py-3 transition-all" placeholder="Tell me about your project" rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-headline-sm hover:bg-primary-container transition-all">Send Message</button>
+</form>
+</div>
+</div>
+</section>
+</main>
+
+
+
+
+
+<!-- Footer -->
+<footer class="bg-slate-950 dark:bg-black w-full py-16 border-t border-white/5">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-left">
+<div class="text-lg font-semibold text-slate-200 dark:text-slate-100 mb-2">Sumit Thakur Barahi</div>
+<!-- <div class="font-plus-jakarta-sans text-sm text-slate-400 dark:text-slate-500">© 2024 Engineered with Precision. All rights reserved.</div> -->
+</div>
+<div class="flex gap-8">
+<a class="text-slate-500 hover:text-white transition-colors opacity-80 hover:opacity-100 font-label-caps" href="https://www.linkedin.com/in/someet-sharma">LinkedIn</a>
+<a class="text-slate-500 hover:text-white transition-colors opacity-80 hover:opacity-100 font-label-caps" href="https://github.com/sumitthakurbarahi">GitHub</a>
+<a class="text-slate-500 hover:text-white transition-colors opacity-80 hover:opacity-100 font-label-caps" href="mailto:sharmasomeet4444@gmail.com">Mail</a>
+<!-- <a class="text-slate-500 hover:text-white transition-colors opacity-80 hover:opacity-100 font-label-caps" href="#">Twitter</a>
+<a class="text-slate-500 hover:text-white transition-colors opacity-80 hover:opacity-100 font-label-caps" href="#">Portfolio</a> -->
+</div>
+</div>
+</footer>
+</body></html>
